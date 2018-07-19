@@ -136,6 +136,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 
 /**
  * Create restaurant HTML.
+ * TODO:  MAYBE:  Seems like this would be an excellent reactJS component.
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
@@ -143,6 +144,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.srcset = getImageSourceSet(image);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -163,6 +165,15 @@ createRestaurantHTML = (restaurant) => {
   li.append(more)
 
   return li
+}
+
+/*
+* Given an image, return a srcset for it.
+* like: srcset="/img/1-500px.jpg 500w, /img/1-1000px.jpg 1000w, /img/1-1500px.jpg 1500w"
+*/
+getImageSourceSet = (image) => {
+  const src = image.src.split('.')[0]; // remove anything after a .  ie remove .jpg, or .png, etc
+  return `${src}-500px.jpg 500w, ${src}-1000px.jpg 1000w, ${src}-1500px.jpg 1500w`;
 }
 
 /**
