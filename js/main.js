@@ -156,7 +156,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 
 /**
  * Create restaurant HTML.
- * TODO:  MAYBE:  Seems like this would be an excellent reactJS component.
  */
 createRestaurantHTML = restaurant => {
   const li = document.createElement('li')
@@ -165,6 +164,7 @@ createRestaurantHTML = restaurant => {
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant)
   image.srcset = getImageSourceSet(image)
+  image.alt = getImageAltText(image)
   li.append(image)
 
   const name = document.createElement('h1')
@@ -194,6 +194,26 @@ createRestaurantHTML = restaurant => {
 getImageSourceSet = image => {
   const src = image.src.split('.')[0] // remove anything after a .  ie remove .jpg, or .png, etc
   return `${src}-500px.jpg 500w, ${src}-1000px.jpg 1000w, ${src}-1500px.jpg 1500w`
+}
+
+/**
+* Given an image, return alt text for that image.
+* Includes mapping of alt texts to images.
+*/
+getImageAltText = image => {
+  const altTexts = {
+    '1.jpg': 'bustling dining room with chandeliers',
+    '2.jpg': 'mozzarella cheese pizza with bubbly crust',
+    '3.jpg': 'dining room styled with wooden and lots of stainless steel',
+    '4.jpg': 'artistic photo of brick building shot from the corner exterior sidewalk',
+    '5.jpg': 'cook smiles while overlooking a busy cozy scene',
+    '6.jpg': 'a rustic dining room in a converted warehouse, with a large US flag decoration',
+    '7.jpg': 'black and white photo of concrete textured frontage of Superiority Burger joint',
+    '8.jpg': 'building with awning and sign above says the DUTCH',
+    '9.jpg': 'people casually eating and drinking water, beer, and wine, some browse on cellphones',
+    '10.jpg': 'modern white and chrome styled eating bar and seating area'
+  }  
+  return altTexts[image.src.split('/').pop()]
 }
 
 /**
