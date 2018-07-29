@@ -1,15 +1,20 @@
-#map {
-  max-height: 300px;
-}
 
 @media screen and (min-width: 450px) {
   #map {
-    max-height: 400px;
-  } 
+    height: 400px;
+  }
 }
 
-@media screen and (min-width: 550px) {
-  
+@media screen and (min-width: 500px) {
+  #restaurants-list li {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  #restaurants-list li {
+    width: 30%;
+  }  
 }
 
 @media screen and (min-width: 800px) {
