@@ -175,7 +175,6 @@ createRestaurantHTML = restaurant => {
   const name = document.createElement('h1')
   name.innerHTML = restaurant.name
 
-  topDiv.append(name)
   restaurantContainerDiv.append(topDiv)
 
   const bottomDiv = document.createElement('div')
@@ -189,9 +188,11 @@ createRestaurantHTML = restaurant => {
   viewDetails.innerHTML = 'View Details'
   viewDetails.href = DBHelper.urlForRestaurant(restaurant)
 
+  bottomDiv.append(name)
   bottomDiv.append(neighborhood)
   bottomDiv.append(address)
   bottomDiv.append(viewDetails)
+  bottomDiv.classList.add('restaurant-info')
 
   restaurantContainerDiv.append(bottomDiv)
 
