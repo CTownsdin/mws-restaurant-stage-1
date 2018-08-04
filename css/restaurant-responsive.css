@@ -1,21 +1,13 @@
-
-@media screen and (min-width: 450px) {
-  #map {
-    height: 400px;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  
-  
-}
-
-@media screen and (min-width: 650px) {
-  
+@media screen and (min-width: 700px) {
+  /* break to  50% image, 50% map */
   
 }
 
 @media screen and (min-width: 900px) {
-  
-  
+  /* add wide auto margins */
+  #maincontent {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

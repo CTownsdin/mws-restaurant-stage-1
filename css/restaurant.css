@@ -11,7 +11,9 @@ body, td, th, p {
 body {
 	background-color: #fdfdfd;
 	margin: 0;
-	position: relative;
+}
+#maincontent {
+  margin: 4px 4px 4px 4px;
 }
 /* prevent overflowing */
 img, embed, object, video {
@@ -50,11 +52,10 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   content: "/\00a0";
 }
-/* Add a color to all links inside the list */
 #breadcrumb li a {
   color: #0275d8;
   text-decoration: none;
-  padding: 1.5em; /* touch target sizing */
+  padding: 1.5em;
 }
 /* Add a color on mouse-over */
 #breadcrumb li a:hover {
@@ -63,8 +64,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* === Restaurant Details ====================== */
 .inside header {
-  position: fixed;
-  top: 0;
   width: 100%;
   z-index: 1000;
 }
@@ -75,15 +74,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 475px;
   width: 100%;
 }
-.inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 50%;
-}
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
-  font-size: 20pt;
+  font-size: 2.5em;
   font-weight: 200;
   letter-spacing: 0;
   margin: 15px 0 30px;
@@ -94,13 +88,13 @@ h1, h2, h3, h4, h5, h6 {
 	width: 90%;
 }
 #restaurant-address {
-  font-size: 12pt;
+  font-size: 2em;
   margin: 10px 0px;
 }
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
-  font-size: 12pt;
+  font-size: 1em;
   font-weight: 300;
   letter-spacing: 10px;
   margin: 0 0 20px;
@@ -112,15 +106,12 @@ h1, h2, h3, h4, h5, h6 {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 30px 30px 30px 30px;
+  margin: 10px 0px 10px 0px;
   width: 100%;
-}
-#reviews-container {
-  padding: 30px 30px 30px 30px;
 }
 #reviews-container h2 {
   color: #f58500;
-  font-size: 24pt;
+  font-size: 2.25em;
   font-weight: 300;
   letter-spacing: -1px;
   padding-bottom: 1pt;
@@ -143,8 +134,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 #reviews-list li p {
   margin: 0 0 10px;
+  font-size: 1.25em;
 }
 #restaurant-hours td {
   color: #666;
   font-size: 2em;
 }
+#footer {
+  background-color: #444;
+  color: #aaa;
+  font-size: 0.5em;
+  letter-spacing: 1px;
+  padding: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+  
