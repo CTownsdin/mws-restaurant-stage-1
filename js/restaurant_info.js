@@ -1,6 +1,37 @@
 let restaurant
 var map
 
+/////////////////////////////////////TODO: Export from utils.js/////////
+/**
+* Given an image, return alt text for that image.
+* Includes mapping of alt texts to images.
+*/
+getImageAltText = image => {
+  const altTexts = {
+    '1.jpg': 'bustling dining room with chandeliers',
+    '2.jpg': 'mozzarella cheese pizza with bubbly crust',
+    '3.jpg': 'dining room styled with wooden and lots of stainless steel',
+    '4.jpg': 'artistic photo of brick building shot from the corner exterior sidewalk',
+    '5.jpg': 'cook smiles while overlooking a busy cozy scene',
+    '6.jpg': 'a rustic dining room in a converted warehouse, with a large US flag decoration',
+    '7.jpg': 'black and white photo of concrete textured frontage of Superiority Burger joint',
+    '8.jpg': 'building with awning and sign above says the DUTCH',
+    '9.jpg': 'people casually eating and drinking water, beer, and wine, some browse on cellphones',
+    '10.jpg': 'modern white and chrome styled eating bar and seating area'
+  }  
+  return altTexts[image.src.split('/').pop()]
+}
+
+/*
+* Given an image, return a srcset for it.
+* like: srcset="/img/1-500px.jpg 500w, /img/1-1000px.jpg 1000w, /img/1-1500px.jpg 1500w"
+*/
+getImageSourceSet = image => {
+  const src = image.src.split('.')[0]
+  return `${src}-500px.jpg 500w, ${src}-1000px.jpg 1000w, ${src}-1500px.jpg 1500w`
+}
+/////////////////////////////////////////////////////////////////////////
+
 /**
  * Initialize Google map, called from HTML.
  */
@@ -61,6 +92,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img')
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant)
+  image.srcset = getImageSourceSet(image)
+  image.alt = getImageAltText(image)
 
   const cuisine = document.getElementById('restaurant-cuisine')
   cuisine.innerHTML = restaurant.cuisine_type

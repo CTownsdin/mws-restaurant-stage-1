@@ -1,6 +1,5 @@
 
 @media screen and (min-width: 700px) {
-  /* break to  50% image, 50% map */
   .inside #map-container {
     width: 50%;
   }
@@ -20,6 +19,11 @@
     margin-right: auto;
   }
   header {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  footer {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
